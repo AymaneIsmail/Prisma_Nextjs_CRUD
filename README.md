@@ -39,9 +39,13 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Setup the database with docker
  
-Configure the DATABASE_URL in .env file
+Configure the DATABASE_URL in .env file with docker
 
-First run the docker command :
+First run these commands :
 ```bash
+# this will start the docker container
 docker-compose up
+
+# this will create the database
+npx prisma db push
 ```
