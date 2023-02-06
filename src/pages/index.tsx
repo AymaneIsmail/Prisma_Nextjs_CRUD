@@ -35,6 +35,7 @@ export default function Home({ notes }: Notes) {
       console.log(data.id)
       console.log(form)
        updateNote(data.id, form);
+       setForm({title: '', content: '', id: ''})
        return;
     }
     try {
@@ -127,6 +128,7 @@ export default function Home({ notes }: Notes) {
               setForm({ ...form, title: event.target.value })
             }
             className="border-2 rounded border-gray-600 p-1"
+            required
           />
           <textarea
             placeholder="Content"
@@ -135,6 +137,7 @@ export default function Home({ notes }: Notes) {
               setForm({ ...form, content: event.target.value })
             }
             className="border-2 rounded border-gray-600 p-1"
+            required
           />
           <button type="submit" className="bg-blue-500 text-white rounded p-1">
             Add +
@@ -152,7 +155,7 @@ export default function Home({ notes }: Notes) {
                   <button onClick={() => {
                     setForm({title: note.title, content: note.content, id: note.id});
                   }} 
-                  className="bg-blue-600 py-1 px-6 rounded text-white text-sm"
+                  className="bg-blue-600 py-1 px-6 rounded text-white text-sm mx-2"
                   >Update </button>
                   <button onClick={() => deleteNote(note.id)} 
                   className="bg-red-600 py-1 px-6 rounded text-white text-sm"
